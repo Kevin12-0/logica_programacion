@@ -14,5 +14,11 @@ if (numberUser == secretNumber) {
     `es igual, el numero es: ${numberUser} `
   ); /* cadena con template string */
 } else {
+  /* condicional anidado */
+  if (numberUser > secretNumber) {
+    alert("el numero es menor");
+  } else {
+    alert("el numero en mayor");
+  }
   alert("no es igual");
 }
