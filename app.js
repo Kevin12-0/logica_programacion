@@ -1,28 +1,47 @@
-/* alert de hola mundo */
-alert("Hola Mundo");
-/* insertar un promp pedir un numero 
-declaracion de variable*/
-let secretNumber = 6;
-let numberUser = 0;
-/* loop oportunidades */
-while (numberUser != secretNumber) {
-  let numberUser = prompt(
-    "Me indicas un numero por favor entre 1 - 10 por favor"
-  );
-  /* verificar si se guardo la varibale */
-  alert(numberUser);
-  /* comparacion obligatoria */
-  if (numberUser == secretNumber) {
+console.log("Hola mundo"); /* no afecta usar ; 
+                        pero, es una buena practica de programación*/
+let numeroLimite = parseInt(prompt("Inserta el numero maximo para el rango:"));
+let numeroSecreto = Math.floor(Math.random() * numeroLimite) + 1;
+let numeroUsuairo;
+let intentos = 1;
+/* let palabraVeces = "vez"; */
+let maximosIntentos = 3;
+/* mientras no se cumpla se repite el juego */
+while (numeroUsuairo != numeroSecreto) {
+  /* prompt insertal informacion */
+  /* nomenclatura camel case para variables */
+  numeroUsuairo = prompt(`Dame un numero entre 1 y ${numeroLimite} :`);
+  /* /* forma 1 
+alert(numeroUsuairo); */
+
+  /* forma 2: desde consola */
+  console.log(numeroUsuairo);
+
+  /* comparacion con if */
+
+  if (numeroUsuairo == numeroSecreto) {
     alert(
-      `es igual, el numero es: ${numberUser} `
-    ); /* cadena con template string */
+      `el numero es correcto: ${numeroUsuairo}, lo hiciste en ${intentos} ${
+        intentos == 1 ? "vez" : "veces"
+      } `
+    );
+    /* si la condicion no se cuimple */
+    break;
   } else {
-    /* condicional anidado */
-    if (numberUser > secretNumber) {
-      alert("el numero es menor");
+    if (numeroUsuairo > numeroSecreto) {
+      alert("el numero secreto es menor");
     } else {
-      alert("el numero en mayor");
+      alert("el numero secreto es mayor");
     }
-    alert("no es igual");
+    /* contador incremental si el resultado es incorrecto */
+    intentos++;
+    /* delimitar el numero de intetos */
+    if (intentos > maximosIntentos) {
+      alert(
+        `Limite alazando de intentos, el numero secreto era: ${numeroSecreto}`
+      );
+      break;
+    }
+    /* alert(`el numero ${numeroUsuairo} es incorrecto`); */
   }
 }
